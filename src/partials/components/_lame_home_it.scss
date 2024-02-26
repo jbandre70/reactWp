@@ -1,0 +1,113 @@
+.lamehomes {
+    display: grid;
+    /*
+    grid-template-columns: repeat(2, 1fr);
+    */
+    border-top: 5px solid $white;
+
+    &.switch {
+        width: 100% !important;
+
+        p {
+            text-transform: none;
+        }
+    }
+    h2.titre {
+        background-color: transparent;
+    }
+    figure.lamehome {
+        background: #000;
+        grid-column: span 1;
+        position: relative;
+        margin: 0;
+        border: 3px solid $white;
+
+        @media #{$max-sm} {
+            border: 5px solid $white;
+        }
+
+        &.full {
+            grid-column: span 2;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        picture {
+            opacity: 1;
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+            min-height: 350px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: block;
+            height: 100%;
+
+            @media #{$max-sm} {
+                min-height: 163px;
+            }
+        }
+
+        &.bleft {
+            border-left: 0;
+
+            @media #{$max-sm} {
+                picture {
+                    min-height: 98px;
+                }
+            }
+        }
+
+        &.bright {
+            border-right: 0;
+
+            @media #{$max-sm} {
+                picture {
+                    min-height: 98px;
+                }
+            }
+        }
+
+        figcaption {
+            display: block;
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            color: $white;
+            text-align: center;
+
+            h2 {
+                text-transform: uppercase;
+                font-size: 34px;
+                font-weight: 500;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.30);
+                margin-bottom: 0em;
+                color: $white;
+                margin: 0;
+
+                @media #{$max-sm} {
+                    font-size: 20px;
+                }
+            }
+
+            p {
+                font-size: 24px;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.30);
+                line-height: 1.6em;
+                margin-top: 0em;
+                font-weight: 500;
+
+                @media #{$max-sm} {
+                    display: none;
+                }
+            }
+        }
+
+        &:hover picture {
+            opacity: .3;
+        }
+    }
+}

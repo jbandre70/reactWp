@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACI,WAAQ;EACJ,OAAO,EAAE,GAAG;AAEhB,YAAS;EACL,OAAO,EAAE,GAAG",
+"sources": ["PageBox.scss"],
+"names": [],
+"file": "PageBox.css"
+}

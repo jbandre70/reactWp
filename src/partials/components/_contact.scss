@@ -1,0 +1,26 @@
+.honey {
+    display: none;
+}
+
+.retraitContact {
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+
+#contact {
+    label {
+        font-size: 1.5em;
+    }
+    #formEmail, #formName {
+        padding-left: 0.8em;
+    }
+
+    #formButton {
+        margin-left: 2em;
+        background-color: lighten($purple, 20%);
+        text-transform: uppercase;
+        color: $white;
+        font-size: 2em;
+        padding: 0.1em 0.8em;
+    }
+}

@@ -1,0 +1,43 @@
+/* Responsive */
+$tablet-width: 76px;
+$desktop-width: 992px;
+$large-width: 1200px;
+
+/* Spacer */
+$spacer: 15px;
+
+// Breakpoints
+$bp-max-xs: 576px;
+$bp-xs: 576px;
+$bp-max-sm: 768px;
+$bp-sm: 769px;
+$bp-max-md: 992px;
+$bp-md: 993px;
+$bp-max-lg: 1199px;
+$bp-lg: 1200px;
+
+// Mediaqueries
+$max-xs: "screen and (min-width: #{$bp-max-xs})";
+$xs: "screen and (min-width: #{$bp-xs})";
+$max-sm: "screen and (max-width: #{$bp-max-sm})";
+$sm: "screen and (min-width: #{$bp-sm})";
+$max-md: "screen and (max-width: #{$bp-max-md})";
+$md: "screen and (min-width: #{$bp-md})";
+$max-lg: "screen and (max-width: #{$bp-max-lg})";
+$lg: "screen and (min-width: #{$bp-lg})";
+$ipad: "screen and (min-width: #{$bp-max-sm} ) and (max-width: #{$bp-max-md})";
+$ipadpro: "screen and (min-width: #{$bp-max-sm} ) and (max-width: #{$bp-max-lg})";
+
+$purple: #117893;
+$truepurple : #f13ab8;
+$grey: #f6f6f6;
+$brown: lighten($purple, 20%);
+$secondarybrown: coral;
+$lightbrown: brown;
+$white: #ffffff;
+$black: #000000;
+$blacklogo : #373737;
+
+$blue:#117893;
+$fonttexte: brandonregular,Arial,sans-serif;
+$fonttitre: 'Comfortaa', cursive;

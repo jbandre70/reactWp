@@ -1,0 +1,17 @@
+.more {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    font-size: 1.2em;
+    background-color: $white;
+    z-index: 999;
+
+    @media #{$max-md} {
+        bottom: 1em;
+        right: 1em;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}

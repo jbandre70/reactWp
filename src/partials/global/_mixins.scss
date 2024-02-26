@@ -1,0 +1,11 @@
+@mixin hrentreprises {
+    margin-top: 50px;
+    border: 1px solid $secondarybrown;
+    max-width: 600px ;
+    width: 600px;
+
+    @media #{$max-sm} {
+        margin-top: 20px;
+        max-width: 300px;
+    }
+}

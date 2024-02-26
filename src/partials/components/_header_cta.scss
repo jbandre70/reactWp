@@ -1,0 +1,43 @@
+.header_cta {
+    height: 768px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+
+    @media #{$max-sm} {
+        height: auto;
+        min-height: 620px;
+        padding: 0.8em;
+    }
+
+    section {
+        h2, h6, div {
+            color: $white;
+            max-width: 740px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+}
+
+.ctalign {
+    text-align: left;
+
+    @media #{$max-sm} {
+        div {
+            text-align: center;
+        }
+    }
+}

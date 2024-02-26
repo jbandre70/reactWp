@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'brandonlight';
+    src: url('../fonts/brandon_reg-webfont.eot');
+    src: local('☺︎'),
+    url('../fonts/brandon_light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/brandon_light-webfont.woff') format('woff'),
+    url('../fonts/brandon_light-webfont.ttf') format('truetype'),
+    url('../fonts/brandon_light-webfont.svg#brandonlight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brandonregular';
+    src: url('../fonts/brandon_reg-webfont.eot');
+    src: local('☺︎'),
+    url('../fonts/brandon_reg-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/brandon_reg-webfont.woff') format('woff'),
+    url('../fonts/brandon_reg-webfont.ttf') format('truetype'),
+    url('../fonts/brandon_reg-webfont.svg#brandonregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brandonmedium';
+    src: url('../fonts/brandon_med-webfont.eot');
+    src: local('☺︎'),
+    url('../fonts/brandon_med-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/brandon_med-webfont.woff') format('woff'),
+    url('../fonts/brandon_med-webfont.ttf') format('truetype'),
+    url('../fonts/brandon_med-webfont.svg#brandonmedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brandonbold';
+    src: url('../fonts/brandon_bld-webfont.eot');
+    src: local('☺︎'),
+    url('../fonts/brandon_bld-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/brandon_bld-webfont.woff') format('woff'),
+    url('../fonts/brandon_bld-webfont.ttf') format('truetype'),
+    url('../fonts/brandon_bld-webfont.svg#brandonbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}

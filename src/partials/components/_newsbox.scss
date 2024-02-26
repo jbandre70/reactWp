@@ -1,0 +1,35 @@
+.newsboxTitle {
+    background-color: lighten(desaturate($purple, 70%), 50%);
+
+    h2 {
+        font-size: 2.4em;
+        margin-top: 0.1em;
+        margin-bottom: 0.4em;
+        padding-bottom: 0.4em;
+    }
+}
+.container.newsbox {
+    .newsboxInline {
+        display: grid;
+        grid-template-columns: 1fr 400px ;
+        grid-gap: 2em;
+        margin-bottom: 2em;
+
+        h2 {
+            font-size: 2em;
+        }
+
+        p{
+            font-size: 1.2em;
+            line-height: 1.8em;
+        }
+
+        @media #{$max-md} {
+            grid-template-columns: 1fr;
+        }
+
+        .item_d {
+            max-width: none;
+        }
+    }
+}

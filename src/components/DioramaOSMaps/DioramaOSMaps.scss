@@ -1,0 +1,25 @@
+.leafletwrapper {
+    text-align: center;
+    margin-top: 1em;
+
+    .leaflet-container {
+        display: inline-block;
+        height: 800px;
+        width: 98%;
+
+        a {
+            &:link, &:visited {
+                color: #117893;
+            }
+
+            &:hover, &:active {
+                color: #000;
+            }
+        }
+    }
+
+    .leaflet-div-icon {
+        background: transparent !important;
+        border: 0px solid #666 !important;
+    }
+}

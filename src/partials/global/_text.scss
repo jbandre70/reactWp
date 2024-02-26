@@ -1,0 +1,138 @@
+section.texte {
+    border-top: 1px solid darken($grey, 20%);
+    background-color: lighten($grey, 0%);
+
+    .dioramaText {
+        font-size: 1.3rem;
+        line-height: 1.8em;
+
+        @media #{$max-md} {
+            font-size: 1.06em;
+            line-height: 1.4em;
+        }
+    }
+
+    .columns {
+        background-color: $grey;
+        border-top: darken($grey, 20%);
+    }
+
+    .column {
+        padding: 1em 1.4em 0 2em;
+        line-height: 1.4em;
+    }
+
+    h2.titre {
+        font-size: 3em;
+        padding: 0.7em 0;
+    }
+
+    @media screen and (max-width: 760px) {
+        h2.titre {
+            font-size: 2em;
+            line-height: 1.4em;
+        }
+    }
+    @media screen and (min-width: 761px) {
+        h2.titre {
+            font-size: 3em;
+        }
+    }
+
+    .data,
+    .purple {
+        background-color: $purple;
+        color: lighten($grey, 20%);
+        padding: 0.6em;
+        margin-top: 0.4em;
+
+        &.sold {
+            background-color: spin($purple, 180 °);
+        }
+    }
+
+    .data {
+        background-color: lighten($grey, 3%);
+        font-size: 1em;
+        color: darken($grey, 60%);
+    }
+
+    div.columns.v2 {
+        background-color: lighten($grey, 2%);
+
+        .column {
+            @media #{$md} {
+                border: 1px solid darken($grey, 14%);
+            }
+
+            &.size {
+                padding-bottom: 1em;
+                font-size: 1em;
+            }
+
+            &.desc {
+                padding-bottom: 2em;
+                @media screen and (min-width: 768px) {
+                    padding-right: 4em;
+                }
+
+                h2 {
+                    font-size: 2.2em;
+                    padding-bottom: 0.6em;
+                    letter-spacing: 0.04em;
+                }
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            .column.size {
+                padding-bottom: 1em;
+                font-size: 0.7em;
+            }
+        }
+    }
+}
+
+.vignette {
+    padding-top: 1em;
+
+    h2 {
+        font-size: 1.4em;
+
+        span {
+            font-size: .8em;
+        }
+
+        @media #{$max-md} {
+            font-size: 2em;
+        }
+    }
+
+    .columns {
+        border-top: 0 solid lighten($grey, 30%) !important;
+
+        .column {
+            border: 1px solid darken($grey,5%);
+            padding: 2em 2.5em;
+            font-size: 1em;
+            overflow: hidden;
+            /*       margin: 1rem;
+*/
+        }
+
+        img {
+            margin: 0 0 1em;
+            position: relative;
+        }
+
+        p {
+            line-height: 1.4em;
+            @media screen and (max-width: 760px) {
+                font-size: 0.86em;
+            }
+            @media screen and (min-width: 761px) {
+                font-size: 1em;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.leafletwrapper {
+  text-align: center;
+  margin-top: 1em; }
+  .leafletwrapper .leaflet-container {
+    display: inline-block;
+    height: 800px;
+    width: 98%; }
+    .leafletwrapper .leaflet-container a:link, .leafletwrapper .leaflet-container a:visited {
+      color: #117893; }
+    .leafletwrapper .leaflet-container a:hover, .leafletwrapper .leaflet-container a:active {
+      color: #000; }
+  .leafletwrapper .leaflet-div-icon {
+    background: transparent !important;
+    border: 0px solid #666 !important; }
+
+/*# sourceMappingURL=DioramaOSMaps.css.map */
