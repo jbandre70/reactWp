@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './Diora.css';
+import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import Diorabox from '../Boxes/Diorabox';
+import Dioralist from '../Dioralist';
+import Diorama from '../Diorama';
+import HelmetComponent from './../HelmetComponent'
 import Tag from '../../components/Tag';
-import {ADRESS_DIORAMAS} from '../../constants';
+import {ADDRESS_DIORAMAS} from '../../constants';
 import {gen4} from "../../utils/keygen";
+import {META_DESCRIPTION, META_TITLE} from '../../constants';
 
 class Diora extends Component {
     constructor() {
-        alert('s');
         super();
         this.state = {
             dioramas: [],
@@ -20,8 +24,7 @@ class Diora extends Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        let pageUrl = ADRESS_DIORAMAS;
-        fetch (pageUrl)
+        fetch (ADDRESS_DIORAMAS)
             .then(response => {
                 if (response.ok) {
                     return response.json();

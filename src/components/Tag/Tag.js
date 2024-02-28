@@ -26,9 +26,9 @@ class Tag extends Component {
 
     render() {
         const {tags} = this.state;
-        let lst;
+        let tagList;
         if (tags !== false) {
-            lst = tags.map((lien, index) => {
+            tagList = tags.map((lien, index) => {
                 return (
                     <li
                         key={index}
@@ -48,7 +48,7 @@ class Tag extends Component {
                         value={'all'}
                         className="all"
                     >All</li>
-                    {lst}
+                    {tagList}
                 </ul>
             </div>
         )

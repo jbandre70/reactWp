@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './PageList.css';
 import PageBox from '../Boxes/PageBox';
 import {CATEGORIE_PAGES} from '../../constants';
@@ -16,8 +16,7 @@ class PageList extends Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        let pageurl = CATEGORIE_PAGES;
-        fetch (pageurl)
+        fetch (CATEGORIE_PAGES)
             .then(response => {
                 if (response.ok) {
                     return response.json();

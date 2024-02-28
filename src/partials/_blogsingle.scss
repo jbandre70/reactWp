@@ -1,44 +1,43 @@
-
 .blog-illustration{
-	padding:0.5em 0;
+	padding: .5em 0;
 }
 
-.texte-blog{ 
+.texte-blog {
 	margin-top :1em;    
-	border-top: 1px solid darken($grey,5%);
+	border-top: 1px solid darken($grey, 5%);
 
 	.columns {
-		border-top: 0px solid darken($grey, 30%);
+		border-top: 0 solid darken($grey, 30%);
 	}
 
-	h1.titre{
+	h1.titre {
 		font-family: $fonttitre;
 		font-size: 2.4em;
 		padding: 1em 0;
 	}
 
-	.data{
+	.data {
 		background-color: lighten($grey,0%);
 		padding: 2em;;
 	}
 
 	.image-pad{
-		padding: 1em 0.5em;
+		padding: 1em .5em;
 	}
 
 	@media screen and (max-width: 760px) {
-		p{
+		p {
 			line-height: 1.5em;
 			font-size: .8em;
 		}
-		h1.titre{
-			padding: 0.5em 0;
+		h1.titre {
+			padding: .5em 0;
 			font-size:1.8em;
 		} 
-		.data{
-			font-size: 0.7em;
+		.data {
+			font-size: .7em;
 		}		
-		.retraitmobile{
+		.retraitmobile {
 			padding-left:1.5em;
 		}
 	}
@@ -47,17 +46,18 @@
 			line-height: 1.3em;
 
 		}
+
 		h1.titre{
 			padding: 1em 0;
-			font-size:2.4em;
-		} 
-		.retraitmobile{
-			padding-left:1.5em;
+			font-size: 2.4em;
 		}
 
+		.retraitmobile{
+			padding-left: 1.5em;
+		}
 	}
-
 }
+
 .encadre.columns .column {
 	border: 1px solid #e9e9e9;
 	padding: 2em 2.5em;

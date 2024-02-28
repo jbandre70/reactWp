@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import './Blogbox.css';
 import {RingLoader} from 'react-spinners';
-import {BLOGPOST_DIORAMAS, LOADER_COLOR} from '../../../constants';
-
+import {BLOG_POST_TEXT, BLOGPOST_DIORAMAS, LOADER_COLOR} from '../../../constants';
 
 class Blogbox extends Component {
     _isMounted = false;
@@ -41,9 +40,9 @@ class Blogbox extends Component {
 
     render() {
         let {dioramas} = this.state;
-        let ls;
+        let blogBoxBuild;
         if (dioramas.code !== 'no_posts') {
-            ls = dioramas.map((diorama, index) => {
+            blogBoxBuild = dioramas.map((diorama, index) => {
                 return (
                     <div key={index} className="blogbox-home">
                         <div className="blogbox-txt">
@@ -74,15 +73,15 @@ class Blogbox extends Component {
                 )
             });
         } else {
-            ls = 'Nothing today - You may come back soon for other stories';
+            blogBoxBuild = 'Nothing today - You may come back soon for other stories';
         }
 
         return (
             <div className="black-wrapper">
                 <section className="container vignette">
                         <div className="column">
-                            <h2>Latest Blog Post <span className="blog">(will only stay for one day)</span></h2>
-                            {ls}
+                            {BLOG_POST_TEXT}
+                            {blogBoxBuild}
                         </div>
                 </section>
             </div>

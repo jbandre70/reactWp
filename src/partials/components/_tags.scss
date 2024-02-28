@@ -7,7 +7,6 @@
     }
 
     ul.tags {
-
         li {
             display: inline-block;
             margin-right: 2em;
@@ -16,6 +15,7 @@
             background-color: lighten($blacklogo, 60%);
             color: lighten($blacklogo, 20%);
             padding: 0 1em;
+            cursor: pointer;
 
             @media #{$max-md} {
                 margin-bottom: 1em;

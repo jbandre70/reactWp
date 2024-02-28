@@ -6,7 +6,6 @@ import Homediorama from '../Homediorama';
 import NewsBox from '../NewsBox';
 import {gen4} from "../../utils/keygen";
 import LamesWrapper from "./../LamesWrapper";
-/*import Blogbox from "./../Boxes/Blogbox";*/
 import HelmetComponent from './../HelmetComponent'
 
 class Home extends Component {
@@ -43,12 +42,10 @@ class Home extends Component {
         };
     }
 
-
     componentDidMount() {
-        let pageurl = ADDRESS_V3 + 'pages/' + PAGE_HOME;
         this.loadTxtpage();
 
-        fetch(pageurl)
+        fetch(ADDRESS_V3 + 'pages/' + PAGE_HOME)
             .then(response => response.json())
             .then(response => {
                 this.setState({
@@ -59,8 +56,7 @@ class Home extends Component {
 
     loadTxtpage = () => {
         this.setState({loading: true});
-        let pageurl = ADDRESS_PAGES + PAGE_HOME;
-        fetch(pageurl)
+        fetch(ADDRESS_PAGES + PAGE_HOME)
         .then(response => response.json())
         .then(response => {
             this.setState({
@@ -78,9 +74,9 @@ class Home extends Component {
 
     render() {
         let {lames, pageHome} = this.state;
-        let lsd;
+        let lamesForPage;
         if (lames !==  false) {
-             lsd = lames.map((lien, index) => {
+            lamesForPage = lames.map((lien, index) => {
                 return (
                     <LamesWrapper lien={lien} index={index} />
                 )
@@ -99,16 +95,13 @@ class Home extends Component {
                         <h1>JEAN DIORAMA</h1>
                     </div>
                     <NewsBox />
-
-                    {lsd}
+                    {lamesForPage}
                 </div>
                 <div className="is-hidden-desktop accrochemobile">
                     <div dangerouslySetInnerHTML={{
                         __html: pageHome.content.rendered
                     }}/>
                 </div>
-
-
                 <section className="container vignette">
                     <div className="column is-one-third">
                         <h2>Latest dioramas</h2>

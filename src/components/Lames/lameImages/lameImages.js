@@ -18,7 +18,6 @@ class lameImages extends Component {
     }
     render() {
         const {li_imgs} = this.props;
-
         let widthDiv = '';
         let imgSize = 'medium'
         if (li_imgs && li_imgs.length > 0) {
@@ -37,7 +36,6 @@ class lameImages extends Component {
             }
         }
 
-
         const images = (li_imgs && li_imgs.length > 0) ? li_imgs.map(li_img => {
             let pint =
                 <a
@@ -51,10 +49,9 @@ class lameImages extends Component {
             ;
             if (li_img.li_link !== '') {
                 return (
-                    <div className="imageInline"  key={li_img.li_img.ID} style={{width: `${widthDiv}%`}}
-                    >
+                    <div className="imageInline"  key={li_img.li_img.ID} style={{width: `${widthDiv}%`}}>
                         {pint}
-                        <a href={li_img.li_link} target={li_img.li_target === true ? '_blank' : ''}>
+                        <a href={li_img.li_link} target={li_img.li_target === true ? '_blank' : ''} rel="noreferrer">
                             <ModalImage
                                 small={li_img.li_img.sizes.medium}
                                 large={li_img.li_img.sizes.large}

@@ -3,7 +3,6 @@ import './Newsbox.css';
 import {CircleLoader} from 'react-spinners';
 import {LOADER_COLOR, NEWSBOXADDRESS} from '../../constants';
 import {Link} from "react-router-dom";
-import Img from 'react-image';
 
 class DioramasBox extends Component {
     _isMounted = false;
@@ -20,9 +19,8 @@ class DioramasBox extends Component {
     componentDidMount() {
         this._isMounted = true; //permet d'éviter des  warnings https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/
         this.setState({loading: true});
-        let pageurl = NEWSBOXADDRESS;
 
-        fetch(pageurl).then(response => {
+        fetch(NEWSBOXADDRESS).then(response => {
                 if (response.ok) {
                     return response.json();
                 } else {

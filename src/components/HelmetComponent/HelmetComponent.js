@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import './HelmetComponent.css';
 import {Helmet} from "react-helmet";
 import {
-    ROOT_ADRESS
+    DOMAIN_NAME
 } from '../../constants';
-
 
 class HelmetComponent extends Component {
     constructor() {
@@ -19,7 +18,7 @@ class HelmetComponent extends Component {
                 <meta charSet="utf-8" />
                 <title>{title}</title>
                 <meta name="description" content={description} />
-                <link rel="canonical" href={`${ROOT_ADRESS}`/`${canonical}`} />
+                <link rel="canonical" href={`${DOMAIN_NAME}`/`${canonical}`} />
             </Helmet>
         );
     }

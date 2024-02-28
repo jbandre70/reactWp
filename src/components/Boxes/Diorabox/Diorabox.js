@@ -37,18 +37,11 @@ class Diorabox extends Component {
                         <div className="item_d">
                             {dioramaCat === 14 &&
                                 <Link to={`/Diora/${diorama.id}`}>
-
                                 <img
                                     alt={diorama.title}
                                     src={[
                                         diorama.fimg_url
                                     ]}
-                                    loader={
-                                        <CircleLoader
-                                            color={LOADER_COLOR}
-                                            loading={true}
-                                        />
-                                    }
                                 />
                             </Link>
                             }

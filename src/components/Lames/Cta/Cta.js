@@ -21,6 +21,7 @@ class Cta extends Component
                     <a
                         className= {classname}
                         href={link}
+                        rel="noreferrer"
                         target={target === true ? '_blank' : ''}
                     >
                         <img src={arrow} alt="" className="arrow" />

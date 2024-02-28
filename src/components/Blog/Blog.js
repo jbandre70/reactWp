@@ -34,9 +34,8 @@ class Blog extends Component {
                 </div>
             )
         }
-        let ls = dioramas.map((diorama, index) => {
+        let blogDioramas = dioramas.map((diorama, index) => {
             const dioramaCat = diorama.categories;
-
             return (dioramaCat === '6' && <div key={index} className="item">
                 <HelmetComponent title={META_TITLE} description={META_DESCRIPTION} canonical={'Blog'}/>
                 <div className="item__content item__content--medium">
@@ -63,7 +62,7 @@ class Blog extends Component {
                 <div className="columns">
                     <div className="column">
                         <div className="masonry">
-                            {ls}
+                            {blogDioramas}
                         </div>
                     </div>
                 </div>

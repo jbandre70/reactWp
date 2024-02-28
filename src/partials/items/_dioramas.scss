@@ -16,7 +16,6 @@
         display: inline-block;
 
         div {
-            margin: 12px;
             float: left;
             cursor: crosshair;
 
@@ -25,8 +24,11 @@
             }
 
             img {
-                width: 100%;
                 height: auto;
+            }
+
+            &.pinterestImageWrapper {
+                margin: 12px;
             }
         }
     }
@@ -46,4 +48,8 @@
 
 .cinqcent {
     width: 400px;
+}
+
+.__react_modal_image__icon_menu {
+    margin-right: 4em;
 }

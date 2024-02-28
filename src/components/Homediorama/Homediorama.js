@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Homediorama.css';
 import {CircleLoader} from 'react-spinners';
 import {LOADER_COLOR, ADDRESS_DIORAMAS_LIMIT} from './../../constants';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 class Homediorama extends Component {
     _isMounted = false;
@@ -66,14 +66,9 @@ class Homediorama extends Component {
     }
 
     render() {
-        const {items, total_pages, cursor, isLoading, dioramaPage} = this.state;
-        if (cursor <= total_pages) {
-            this.cursor = 'lol';
-        }
-
+        const {items, dioramaPage} = this.state;
         let ls = items.map((diorama, index) => {
             const dioramaCat = parseInt(diorama.categories[0]);
-            let plus = dioramaCat === 14 ? <Link to={`/Diora/${diorama.id}`} className="plus">+</Link> : '';
             return (
                 <div className='column is-3' key={index} id={`suite-${index}`}>
                     <div className="item_d">

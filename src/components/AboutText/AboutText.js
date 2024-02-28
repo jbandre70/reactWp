@@ -4,12 +4,11 @@ import {ADDRESS_V2, PAGE_ABOUT, LOADER_COLOR} from '../../constants';
 import {CircleLoader} from 'react-spinners';
 
 class AboutText extends Component {
-
     constructor() {
         super();
         this.state = {
             loading: true,
-            aboutT: {
+            AboutTextRendered: {
                 title: {
                     rendered: ''
                 },
@@ -19,33 +18,24 @@ class AboutText extends Component {
                 featured_media: {
                     rendered: ''
                 }
-            },
-            mediaT: {
-                guid: {
-                    rendered: ''
-                }
-            },
-            acfimg: {
-                galerie: []
             }
         }
     }
 
     componentDidMount() {
         this.setState({loading: true});
-        let pageurl = ADDRESS_V2 + 'pages/' + PAGE_ABOUT;
-        fetch(pageurl)
+        fetch(ADDRESS_V2 + 'pages/' + PAGE_ABOUT)
             .then(response => response.json())
             .then(response => {
                 this.setState({
-                    aboutT: response,
+                    AboutTextRendered: response,
                     loading: false
                 })
             });
     }
 
     render() {
-        let {aboutT, loading} = this.state;
+        let {AboutTextRendered, loading} = this.state;
         if (loading) {
             return (
                 <div className="loading">
@@ -60,14 +50,14 @@ class AboutText extends Component {
         }
 
         return (
-            <div key={aboutT.id}>
+            <div key={AboutTextRendered.id}>
                 <h1 dangerouslySetInnerHTML={{
-                    __html: aboutT.title.rendered
+                    __html: AboutTextRendered.title.rendered
                 }}/>
                 <div dangerouslySetInnerHTML={{
-                    __html: aboutT.content.rendered
+                    __html: AboutTextRendered.content.rendered
                 }}/>
-                <img src={aboutT.fimg_url}
+                <img src={AboutTextRendered.fimg_url}
                      alt={""}
                 />
             </div>
