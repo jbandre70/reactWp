@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Dioralist.css';
 import Diorabox from '../Boxes/Diorabox';
 import Tag from '../../components/Tag';
@@ -19,7 +19,8 @@ class Dioralist extends Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        fetch (ADDRESS_DIORAMAS)
+        let pageUrl = ADDRESS_DIORAMAS;
+        fetch (pageUrl)
             .then(response => {
                 if (response.ok) {
                     return response.json();

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './Diora.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import Diorabox from '../Boxes/Diorabox';

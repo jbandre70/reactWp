@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
 import './Diorama.css';
-import {ADDRESS_MENU, ADDRESS_V2, ADDRESS_V3, OPTIONS, ROOT_ADDRESS} from '../../constants';
+import {ADDRESS_V2, ADDRESS_V3} from '../../constants';
 //import Lightbox from 'react-image-lightbox';
 //import 'react-image-lightbox/style.css';
 import {isMobile} from 'react-device-detect';
 import Pinterest from './../Pinterest';
-import ModalImage from "react-modal-image";
 
 class Diorama extends Component {
     constructor() {
         super();
-        this.dioramaId = window.location.href.split('/')[4];
-
         this.state = {
             diorama: {
                 title: {
@@ -28,18 +25,22 @@ class Diorama extends Component {
                 }
             },
             galerie: [],
+            photoIndex: 0, //lightbox
+            isOpen: false //lightbox
         }
     }
 
-
     componentWillMount() {
-        fetch(ADDRESS_V2 + 'posts/' + this.dioramaId)
+        const dioramaId = window.location.href.split('/')[4];
+        let pageul = ADDRESS_V2 + 'posts/' + dioramaId;
+        fetch(pageul)
         .then(response => response.json())
         .then(response => {
             this.setState({diorama: response})
         });
 
-        fetch(ADDRESS_V3 + "posts/" + this.dioramaId + '/galerie')
+        let pageurl = ADDRESS_V3 + "posts/" + dioramaId + '/galerie';
+        fetch(pageurl)
         .then(response => response.json())
         .then(data => {
             this.setState({galerie: data.galerie});
@@ -47,8 +48,11 @@ class Diorama extends Component {
     }
 
 
-/*    async componentDidMount() {
-        let requestsArray= [ADDRESS_V2 + 'posts/' + this.dioramaId, ADDRESS_V3 + "posts/" + this.dioramaId + '/galerie'];
+
+/*
+    async componentDidMount() {
+        const dioramaId = window.location.href.split('/')[4];
+        let requestsArray= [ADDRESS_V2 + 'posts/' + dioramaId, ADDRESS_V3 + "posts/" + dioramaId + '/galerie'];
         Promise.all(requestsArray.map((request) => {
             return fetch(request).then((response) => {
                 return response.json();
@@ -56,39 +60,38 @@ class Diorama extends Component {
                 return data;
             });
         })).then((values) => {
+            console.log(Object.values(values[1]));
             console.log(Object.entries(values[1]));
+let rr = Object.values(values[1]);
 
-            let a = Object.values(values[1]);
+            let a = [rr.map(object => object.link) ]
+console.log('zzza');
+console.log(a);
 
-            a.forEach(e => {
-                console.log('e');
-                console.log(Object.entries(e));
-            })
-/!*            let a = Object.values(values[1]);
-            console.log(a[0]);
-            let b = Object.values(a[0]);
-            let c= Object.values(b);
-            console.log(Object.entries(c));*!/
 
 
             this.setState({diorama: Object.values(values[0])});
             this.setState({galerie: Object.values(values[1])});
         });
-    }*/
+    }
+*/
 
     render() {
-        let {galerie, diorama} = this.state;
+        let {galerie, diorama, photoIndex, isOpen} = this.state;
+        let nbPhotos = galerie.length;
         let photos = [];
+
+        photoIndex = Number(photoIndex);
 
         galerie.map((galf, index) => {
           return photos.push(galf.url);
         });
         galerie.slice(0, 2);
         let i = 0;
-        let limit = isMobile ? 100 : 10;
+        let limit = isMobile ? 100 : 3;
         let ls = galerie.map((gal, photoIndex) => {
             i++;
-            if (i <= limit) {
+            if (i <= limit) { // on limite la qtté de photos dans la galerie
                 return (
                     <div key={photoIndex} className="pinterestImageWrapper">
                         <Pinterest
@@ -96,10 +99,11 @@ class Diorama extends Component {
                             img= {gal.sizes.large}
                             alt= {gal.alt}
                         />
-                        <ModalImage
-                            small={gal.sizes.medium}
-                            large={gal.sizes.large}
+                        <img
                             alt={gal.alt}
+                            src={gal.sizes.medium}
+                            onClick={() => this.setState({isOpen: true, photoIndex: photoIndex})}
+                            className="cinqcent"
                         />
                     </div>
                 )
@@ -107,6 +111,28 @@ class Diorama extends Component {
                 return '';
             }
         });
+
+        let lsMiniature = '';
+        if (isMobile === false) {
+            lsMiniature = galerie.map((gal, photoIndex) => {
+                i++;
+                return (
+                    <div key={photoIndex} className="pinterestImageWrapper imageWrapper">
+                        <Pinterest
+                            url={gal.link}
+                            img={gal.sizes.large}
+                            alt={gal.alt}
+                        />
+                        <img
+                            alt={gal.alt}
+                            src={gal.sizes.thumbnail}
+                            onClick={() => this.setState({isOpen: true, photoIndex: photoIndex})}
+                            className="cinqcent"
+                        />
+                    </div>
+                )
+            });
+        }
 
         return (
             <div key={diorama.id}>
@@ -117,7 +143,31 @@ class Diorama extends Component {
                     <div className="wrapped">
                         {ls}
                     </div>
+                    <div className="wrappedminiatures">
+                        {lsMiniature}
+                    </div>
                 </section>
+                {
+                    /*isOpen && (
+                        <Lightbox
+                            mainSrc={photos[(photoIndex)]}
+                            nextSrc={photos[(photoIndex + 1) % nbPhotos]}
+                            prevSrc={photos[(photoIndex + nbPhotos - 1) % nbPhotos]}
+                            onCloseRequest={() => this.setState({isOpen: false})}
+                            onMovePrevRequest={() => {
+                                this.setState({
+                                  photoIndex: (photoIndex + nbPhotos - 1) % nbPhotos
+                                });  //alert(photos[(photoIndex)]);
+                            }}
+                            onMoveNextRequest={() => {
+                                this.setState({
+                                  photoIndex: (photoIndex + 1) % nbPhotos
+                                });  //alert(photos[(photoIndex)]);
+                            }}
+                        />
+                    )*/
+                }
+
                 <section className="texte">
                     <div className="columns">
                         <div className="column is-two-thirds">
