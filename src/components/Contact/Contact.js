@@ -25,7 +25,7 @@ class Contact extends React.Component {
 
     successCallback = (e) => {
         if (window.confirm('Thank you for your message')) {
-            console.log(e,'mail envoyé');
+            console.log(e,'message sent');
             this.setState({
                 formName: '',
                 formEmail: '',

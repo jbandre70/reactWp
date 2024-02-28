@@ -7,29 +7,32 @@ import PageSwitch from './../../components/PageSwitch';
 import About from './../../components/About';
 import Press from './../../components/Press';
 import Diora from './../../components/Diora';
+import Diorama from './../../components/Diorama';
 import Maps from './../../components/Maps';
 import GaleryDioramas from '../../components/GaleryDioramas';
 import NotFound from './../../components/NotFound';
 import Tooltip from 'rc-tooltip';
 import {isMobile} from 'react-device-detect';
 
-import {ADRESS_MENU, PRESSADDRESS} from '../../constants';
+import {ADDRESS_MENU, OPTIONS, PRESSADDRESS, ROOT_ADDRESS} from '../../constants';
 
-import {cinq} from "../../utils/cinq";
+import {cinq} from '../../utils/cinq';
 
 import facebook from './../../img/facebook.svg';
 import instagram from './../../img/instagram.svg';
 import logo from './../../img/logo1.svg';
-import ds from './../../img/distantshoresg.svg';
-import dsmob from './../../img/ds-mobile.png';
-import AdvertBox from "../../components/Boxes/AdvertBox";
+import distantShores from './../../img/distantshoresg.svg';
+import distantShoresMob from './../../img/ds-mobile.png';
+import AdvertBox from '../../components/Boxes/AdvertBox';
 
 class Main extends Component
 {
     constructor() {
         super();
         this.state = {
-            liens: [],
+            links: [],
+            basicSiteInfos: [],
+            options: [],
             active: false
         }
         this.toggleClass= this.toggleClass.bind(this);
@@ -39,19 +42,29 @@ class Main extends Component
         const currentState = this.state.active;
         this.setState({ active: !currentState });
     };
-    componentDidMount() {
-        fetch(ADRESS_MENU).then(response => response.json()).then(response => {
-            this.setState({liens: response.items});
-         });
+
+    async componentDidMount() {
+        let requestsArray= [ADDRESS_MENU, ROOT_ADDRESS, OPTIONS];
+        Promise.all(requestsArray.map((request) => {
+            return fetch(request).then((response) => {
+                return response.json();
+            }).then((data) => {
+                return data;
+            });
+        })).then((values) => {
+            this.setState({links: Object.values(values[0].items)});
+            this.setState({basicSiteInfos: Object.values(values[1])});
+            this.setState({options: Object.values(values[2])});
+        });
     }
 
     render() {
-        let {liens} = this.state;
-        let ls = liens.map((lien, index) => {
-                return (
-                    <Link key={index} to={'/' + cinq(lien.title)} className="navbar-item baisse" onClick={this.toggleClass}>
-                        {lien.title}
-                    </Link>)
+        let {links, basicSiteInfos, options} = this.state;
+        let listLinks = links.map((link, index) => {
+            return (
+                <Link key={index} to={'/' + cinq(link.title)} className="navbar-item baisse" onClick={this.toggleClass}>
+                    {link.title}
+                </Link>)
             }
         );
 
@@ -62,17 +75,17 @@ class Main extends Component
                 <Tooltip
                     placement="top"
                     trigger={['hover']}
-                    overlay={<span>Distant Shores, my other website with nature based boxed dioramas</span>}
+                    overlay={`${options.distant_shores_description}`}
                     arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
                 >
-                    <span className="icon" style={{color: '#bbb'}}>
-                      <img src={dsmob} alt=""/>
+                    <span className="icon">
+                      <img src={distantShoresMob} alt=""/>
                     </span>
                 </Tooltip>
         } else {
             tooltip =
-                <span className="icon" style={{color: '#bbb'}}>
-                      <img src={ds} alt=""/>
+                <span className="icon">
+                      <img src={distantShores} alt=""/>
                 </span>
         }
 
@@ -83,8 +96,8 @@ class Main extends Component
                         <div>
                             <nav className="navbar">
                                 <div className="navbar-brand">
-                                    <a className="navbar-item logo" href="http://www.jbadiorama.com">
-                                        <img className="dslogo" src={logo} alt="JBA | Jean Dioramas"  />
+                                    <a className="navbar-item logo" href={basicSiteInfos.url}>
+                                        <img className="dslogo" src={logo} alt={basicSiteInfos.name}  />
                                     </a>
                                     <div
                                         className={this.state.active ? 'navbar-burger burger is-active': 'navbar-burger burger'}
@@ -102,7 +115,7 @@ class Main extends Component
                                             <Link to={'/'} className="navbar-item baisse">
                                                 Home
                                             </Link>
-                                            {ls}
+                                            {listLinks}
                                         </div>
                                 </div>
                                 <div className="navbar-end">
@@ -110,7 +123,7 @@ class Main extends Component
                                         <div className="field is-grouped">
                                             <a
                                                 className="navbar-item"
-                                                href="http://www.distant-shores.com"
+                                                href={options.distantshores_url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
@@ -118,21 +131,21 @@ class Main extends Component
                                             </a>
                                             <a
                                                 className="navbar-item"
-                                                href="https://www.facebook.com/jbadiorama"
+                                                href={options.facebook_url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <span className="icon" style={{color: '#bbb'}}>
+                                                <span className="icon">
                                                   <img src={facebook} alt=""/>
                                                 </span>
                                             </a>
                                             <a
                                                 className="navbar-item "
-                                                href="https://www.instagram.com/jean_diorama/"
+                                                href={options.instagram_url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <span className="icon" style={{color: '#bbb'}}>
+                                                <span className="icon">
                                                   <img src={instagram} alt="" />
                                                 </span>
                                             </a>
@@ -143,7 +156,8 @@ class Main extends Component
                         </div>
                         <Routes>
                             <Route exact path='/'  element={<Home />}/>
-                            <Route path='/Diora/*'  element={<Diora />} />
+                            <Route path="/Diora/:id" element={<Diorama />} />
+                            <Route path="/Diora" element={<Diora />} />
                             <Route exact path='/About'  element={<About />}/>
                             <Route exact path='/Blog' element={<Blog />}/>
                             <Route exact path='/Press' element={(props) => <Press path={PRESSADDRESS} {...props} /> } />

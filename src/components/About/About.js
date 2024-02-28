@@ -5,10 +5,7 @@ import Links from './../Links';
 import Contact from './../Contact';
 import DioramaOSMaps from './../DioramaOSMaps';
 import HelmetComponent from './../HelmetComponent'
-import {
-    META_DESCRIPTION,
-    META_TITLE,
-} from '../../constants';
+import {META_DESCRIPTION, META_TITLE} from '../../constants';
 
 class About extends Component {
     render() {

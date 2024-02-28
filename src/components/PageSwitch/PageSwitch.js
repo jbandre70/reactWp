@@ -14,7 +14,6 @@ class DebugRouter extends BrowserRouter {
     }
 }
 
-
 const PageSwitch = () => (
     <div>
         <HelmetComponent title={META_TITLE } description={META_DESCRIPTION} canonical={'Page'} />

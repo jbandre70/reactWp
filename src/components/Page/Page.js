@@ -7,7 +7,6 @@ import {gen4} from "../../utils/keygen";
 import {ADDRESS_V2, META_TITLE, META_DESCRIPTION} from "../../constants";
 
 class Page extends Component {
-
     constructor(props) {
         super(props);
         this.state = {

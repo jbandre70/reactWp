@@ -60,8 +60,7 @@ class DioramaOSMaps extends Component {
 
     loadTxtpage = () => {
         this.setState({loading: true});
-        let pageurl = ADDRESS_PAGES + PAGE_MAPS;
-        fetch(pageurl)
+        fetch(ADDRESS_PAGES + PAGE_MAPS)
             .then(response => response.json())
             .then(response => {
                 this.setState({
@@ -81,8 +80,7 @@ class DioramaOSMaps extends Component {
         });
         this.loadTxtpage();
 
-        let pageurl = ADDRESS_V2 + 'posts/?categories=' + CATEGORIE_DIORAMA;
-        fetch(pageurl)
+        fetch(ADDRESS_V2 + 'posts/?categories=' + CATEGORIE_DIORAMA)
             .then(response => response.json())
             .then(response => {
                 this.setState({

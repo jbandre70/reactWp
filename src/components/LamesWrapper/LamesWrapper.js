@@ -2,14 +2,9 @@ import React, {Component} from 'react';
 
 import './LamesWrapper.css';
 import Citation from '../Lames/Citation';
-import lameImageTextSimple from '../Lames/lameImageTextSimple';
-import lameImages from '../Lames/lameImages';
-import flexibleCenterText from '../Lames/flexibleCenterText';
 import LameHeaderCta from '../Lames/LameHeaderCta';
-import imageFullTextHalf from "../Lames/imageFullTextHalf";
 
 class LamesWrapper extends Component {
-
     constructor() {
         super();
         this.state = {}

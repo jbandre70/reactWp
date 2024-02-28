@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './GaleryDioramas.css';
 import {
-    ADRESS_IMAGES,
+    ADDRESS_IMAGES,
     LOADER_COLOR,
     GALERY_PAGE,
     ADDRESS_V2,
@@ -55,7 +55,7 @@ class GaleryDioramas extends Component {
         this.setState({ isLoading: true, error: undefined })
         let {items, cursor} = this.state;
         cursor +=1;
-        fetch(ADRESS_IMAGES + cursor)
+        fetch(ADDRESS_IMAGES + cursor)
             .then(response => {
                 for (let pair of response.headers.entries()) {
                     if (pair[0] === 'x-wp-totalpages') {

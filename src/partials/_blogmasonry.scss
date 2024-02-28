@@ -8,7 +8,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-
     .text {
         padding: 1em 1em 4em 3em;
         line-height: 1.6em;
@@ -31,7 +30,6 @@
     }
 }
 
-
 .header-home {
     position: relative;
 
@@ -41,7 +39,6 @@
     @media #{$max-md} {
         min-height: 300px;
     }
-
 
     &.home {
         padding: 80px;
@@ -99,13 +96,13 @@
 	column-count: 1;
 	column-gap: 0;
 	counter-reset: item-counter;
-	font-size: 0.9em;
+	font-size: .9em;
 
 	h2 a {
 		color: #000;
 	}
 	img {
-		margin-bottom:0.6em;
+		margin-bottom: .6em;
 	}
 
 	@media screen and (min-width: 400px) {
@@ -134,7 +131,7 @@
 		flex-direction: column;
 		/* justify-content: center; */
 		border:1px solid darken($grey, 10%);
-		padding: 0.5em 1em;
+		padding: .5em 1em;
         box-sizing: border-box;
 
         &--small {
@@ -155,10 +152,10 @@
         width: 10px;
         height: 10px;
         position: absolute;
-        top: 0.9em;
-        left: 0.9em;
+        top: .9em;
+        left: .9em;
         z-index: 999;
-        opacity: 0.6;
+        opacity: .6;
 
         &:hover {
             opacity: 1;

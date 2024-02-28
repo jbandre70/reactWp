@@ -1,5 +1,7 @@
 export function cinq(el) {
-    let a = el.substring(0, 5);
+/*    console.log(el);
+    if(el !== "Dioramas")*/
+     el = el.substring(0, 5);
     
-    return (a.replace(' ', '_'));
+    return (el.replace(' ', '_'));
 }

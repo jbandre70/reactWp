@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import './PressBox.css';
 import {CircleLoader} from 'react-spinners';
 import {LOADER_COLOR} from './../../../constants';
-import Img from 'react-image';
-
 class PressBox extends Component {
     constructor() {
         super();
@@ -32,7 +30,7 @@ class PressBox extends Component {
                 return (
                     <div className={isthree ? 'column is-3 press-wrapper' : 'press-wrapper'} key={index} id={`suite-${index}`}>
                         <div className="item_d_inline">
-                            <Img
+                            <img
                                 alt={diorama.title}
                                 src={[
                                     diorama.fimg_url

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './AdvertBox.css';
 import {RingLoader} from 'react-spinners';
 import {ADVERTBOXADDRESS, LOADER_COLOR} from '../../../constants';
-import Img from 'react-image';
 import Cta from "../../Lames/Cta/Cta";
 import {gen4} from "../../../utils/keygen";
 
@@ -45,17 +44,11 @@ class AdvertBox extends Component {
                                 <div key={index} className="blogbox-home">
                                     <div className="blogbox-img">
                                         {diorama.acf.advert_video.length === 0 &&
-                                            <Img
+                                            <img
                                                 alt={diorama.better_featured_image.alt_text}
                                                 src={[
                                                     diorama.better_featured_image.media_details.sizes.medium_large.source_url,
                                                 ]}
-                                                loader={
-                                                    <RingLoader
-                                                        color={LOADER_COLOR}
-                                                        loading={true}
-                                                    />
-                                                }
                                             />
                                         }
                                         {diorama.acf.advert_video.length !== 0   &&
